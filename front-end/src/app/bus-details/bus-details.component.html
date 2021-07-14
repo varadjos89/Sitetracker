@@ -1,0 +1,25 @@
+
+<div class="container">
+    <H3>Bus Details</H3>
+    <table>
+        <tr>
+            <td>Year  :</td>
+            <td><input type="text" value="{{ msg.year }}" [(ngModel)]="changedYear" ></td>
+        </tr>
+        <tr>
+            <td>Max Capacity  :</td>
+            <td><input type="text" value="{{ msg.capacity }}" [(ngModel)]="changedCapacity" ></td>
+        </tr>
+        <tr>
+            <td>Odometer  :</td>
+            <td><input type="text" value="{{ msg.odometer_reading }}" [(ngModel)]="changedReading" ></td>
+        </tr>
+        <tr>
+            <td><button (click)="onSave();">Save</button></td>
+            <td><button>Cancel</button></td>
+        </tr>
+    </table>
+</div>
+<div class="container1">
+    <h3>Resale Value: {{ ResaleValue }}</h3>
+</div>
