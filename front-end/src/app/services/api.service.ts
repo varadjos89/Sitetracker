@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Bus } from '../model/Bus';
+import Swal from 'sweetalert2';
 
 @Injectable()
 
@@ -31,11 +32,10 @@ export class ApiService {
     },
     { headers: new HttpHeaders().set('Content-Type', 'application/json')}).subscribe(
       (val) => {
-          console.log("POST call successful value returned in body", 
-                      val);
+          Swal.fire('Success', 'The updates are saved in the database', 'success')
       },
       response => {
-          console.log("POST call in error", response);
+          Swal.fire('Error', 'Error fetching resale value', 'error')
       },
       () => {
           console.log("The POST observable is now completed.");
@@ -44,11 +44,13 @@ export class ApiService {
 
     getResale(bus: Bus):Observable<Number> {
     const headers = new HttpHeaders().append('Content-Type', 'application/json');
-    // // const params = new HttpParams()
-    // //             .set("requestData", encodeURIComponent(JSON.stringify(bus)))
-    // const params = new HttpParams().append('bus', JSON.stringify(bus));
     
-    const params = new HttpParams().append('id', bus.bus_id+'');
+    // const params = new HttpParams().append('id', bus.bus_id+'');
+    const params = new HttpParams().append('status', bus.status)
+                                   .append('capacity', bus.capacity+'')
+                                   .append('reading', bus.odometer_reading+'')
+                                   .append('ac', bus.air_conditioning+'')
+                                   .append('year', bus.year+'')
     return this._http.get<Number>(this.resaleget, {headers, params})
 
     // return this._http.get<Number>(this.resaleget, {headers, params})

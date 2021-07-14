@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,31 +51,31 @@ public class BusController {
     }
 
     @GetMapping(path="/calculate")
-    public ResponseEntity<Optional> getResaleValue(@RequestParam(name = "id") Long id){
+    public ResponseEntity<Optional> getResaleValue(HttpServletRequest request){
         try {
-            Bus bus = busService.findBus(id);
-//            System.out.println(bus.toString());
+            int status= Integer.parseInt(request.getParameter("status"));
+            int capacity= Integer.parseInt(request.getParameter("capacity"));
+            long reading= Long.parseLong(request.getParameter("reading"));
+            boolean air_conditioning=  Boolean.parseBoolean(request.getParameter("ac"));
+            int year= Integer.parseInt(request.getParameter("year"));
+
             List<BusCondition> conditions = busService.getBusConditions();
             double odometerFactor = conditions.get(0).getPrice_percentage();
             double increasedAirConditioningRate = conditions.get(1).getPrice_percentage();
             double ageIncreasedRate = conditions.get(2).getPrice_percentage();
-            System.out.println(bus.getStatus());
-            if (bus.getStatus() == READY_FOR_USE) {
-                double startingPrice = busService.getStartingSalePrice(bus.getCapacity());
-
-                if (bus.getOdometer_reading() > 100000) {
-                    double extraMiles = bus.getOdometer_reading() - 100000;
+            if (status == READY_FOR_USE) {
+                double startingPrice = busService.getStartingSalePrice(capacity);
+                if (reading > 100000) {
+                    double extraMiles = reading - 100000;
                     startingPrice = startingPrice + (extraMiles * odometerFactor);
                 }
-
-                if (bus.isAir_conditioning()) {
+                if (air_conditioning) {
                     startingPrice = startingPrice + (startingPrice * increasedAirConditioningRate);
                 }
-
-                if (bus.getYear() > 1972) {
+                if (year <= 1972) {
                     startingPrice = startingPrice + (startingPrice * ageIncreasedRate);
                 }
-
+                startingPrice = Math.round(startingPrice * 100.0) / 100.0;
                 return new ResponseEntity<>(Optional.of(startingPrice), HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(Optional.of(0), HttpStatus.OK);
