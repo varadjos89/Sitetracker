@@ -26,7 +26,7 @@ spring.jpa.generate-ddl=true
 
 4) Include your username and password that you used while creating user for MySQL
 5) Build and run the project
-6) Run commands from second script named [First_set_of_queries.sql](https://github.com/varadjos89/Sitetracker/blob/master/First_set_of_queries.sql)
+6) Open a file named second script named [First_set_of_queries.sql](https://github.com/varadjos89/Sitetracker/blob/master/First_set_of_queries.sql) in Workbench and run commands from it to insert data related to buses
 
 # Front-end Set up
 1) The front is built using Angular
