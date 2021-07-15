@@ -64,7 +64,7 @@ export class BusDetailsComponent implements OnInit {
     
     this.busService.getResale(this.msg).subscribe(
       data => { this.ResaleValue = data;},
-      err => console.error(err),
+      err => Swal.fire('Error', 'Please getting resale value', 'error'),
       () => console.log('done loading Buses')
     );
 

@@ -35,7 +35,7 @@ export class ApiService {
           Swal.fire('Success', 'The updates are saved in the database', 'success')
       },
       response => {
-          Swal.fire('Error', 'Error fetching resale value', 'error')
+          Swal.fire('Error', 'Error saving the bus data', 'error')
       },
       () => {
           console.log("The POST observable is now completed.");
@@ -45,7 +45,6 @@ export class ApiService {
     getResale(bus: Bus):Observable<Number> {
     const headers = new HttpHeaders().append('Content-Type', 'application/json');
     
-    // const params = new HttpParams().append('id', bus.bus_id+'');
     const params = new HttpParams().append('status', bus.status)
                                    .append('capacity', bus.capacity+'')
                                    .append('reading', bus.odometer_reading+'')
@@ -53,6 +52,5 @@ export class ApiService {
                                    .append('year', bus.year+'')
     return this._http.get<Number>(this.resaleget, {headers, params})
 
-    // return this._http.get<Number>(this.resaleget, {headers, params})
     }
 }
