@@ -2,10 +2,10 @@
 This application helps users manage their large fleet of buses and ensure that they are operating efficiently and reducing costs.
 
 ## Initial set up
-1) Clone the repository using Https or SSH key
+1) Clone the repository using HTTPS or SSH key
 
 # Database Set up
-1) Install MySQL Community Server 8.0.25 [https://dev.mysql.com/downloads/mysql/]
+1) Install [MySQL Community Server 8.0.25](https://dev.mysql.com/downloads/mysql/)
 2) Install MySQL Workbench by setting password for your user [https://dev.mysql.com/downloads/workbench/]
 3) Start Workbench and open a file named create_database_query.sql from the cloned repository to create your schema [https://github.com/varadjos89/Sitetracker/blob/master/create_database_query.sql]
 
@@ -26,6 +26,7 @@ spring.jpa.generate-ddl=true
 
 4) Include your username and password that you used while installing workbench
 5) Build and run the project
+6) Run commands from second script named First_set_of_queries.sql []
 
 # Front-end Set up
 1) The front is built using Angular
