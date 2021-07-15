@@ -1,4 +1,4 @@
-.col {
+/* .col {
 border: 3px solid #B22222;
 margin-left: 20px;
 margin-right: 100px;
@@ -6,4 +6,10 @@ margin-top: 20px;
 margin-bottom: 20px;
 width: 650px;
 height: 550px
+} */
+
+.bus-container{
+    height: max-content;
+    width: 50vw;
+    display:inline-block;
 }

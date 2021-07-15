@@ -1,15 +1,20 @@
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6" *ngFor="let Bus of Buses;">
-    <div>
-        <figure>
+<div class="bus-container red-border">
+<div class="row" >
+    <div class="col-3 py-2" *ngFor="let Bus of Buses; let i = index">
         <img 
             [src] = "Bus.bus_url"
             alt="{{ Bus.year }}" 
             (click)="submit(Bus);"
             class="img-responsive" 
-            style="max-height: 50px;"> 
-    </figure>
-        <div>
-        <h5>{{ Bus.year }}</h5>
-        </div>
+            style="height: 100px;"> 
     </div>
 </div>
+</div>
+
+ <!-- <div class="row">
+  <div class="col">col</div>
+  <div class="col">col</div>
+  <div class="w-100"></div>
+  <div class="col">col</div>
+  <div class="col">col</div>
+</div> -->
