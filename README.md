@@ -33,7 +33,7 @@ spring.jpa.generate-ddl=true
 2) Install Angular: 11.0.9 and Angular CLI: 11.0.7 (https://angular.io/guide/setup-local)
 3) Run a command npm install to download all the dependencies
 4) Run a command ng serve to run the project
-5) Open a [link](http://localhost:4200/)
+5) Open a [link](http://localhost:4200/) in your browser to see the website
 
 
 
