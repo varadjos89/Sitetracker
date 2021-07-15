@@ -7,7 +7,7 @@ This application helps users manage their large fleet of buses and ensure that t
 # Database Set up
 1) Install [MySQL Community Server 8.0.25](https://dev.mysql.com/downloads/mysql/)
 2) Install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) by setting username and password for your user 
-3) Start Workbench and open a file named [create_database_query.sql](https://github.com/varadjos89/Sitetracker/blob/master/create_database_query.sql) from the cloned repository to create your schema 
+3) Start Workbench and open a file named [create_database_query.sql](https://github.com/varadjos89/Sitetracker/blob/master/create_database_query.sql) from the cloned repository and run commands in it to create your schema 
 
 # Back-end Set up
 1) The Backend is built using Java and uses Spring Boot as a web framework.
