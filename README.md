@@ -24,7 +24,7 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 spring.jpa.generate-ddl=true
 ```
 
-4) Include your username and password that you used while installing workbench
+4) Include your username and password that you used while creating user for MySQL
 5) Build and run the project
 6) Run commands from second script named [First_set_of_queries.sql](https://github.com/varadjos89/Sitetracker/blob/master/First_set_of_queries.sql)
 
