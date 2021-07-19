@@ -13,7 +13,7 @@ export class BusDetailsComponent implements OnInit {
   changedYear: number= 0;
   changedCapacity: number=0;
   changedReading: number=0;
-  @Input()ResaleValue: Number=0;
+  @Input()ResaleValue: string='0';
    @Input() msg: Bus = {bus_id: -1, year: 0, wheels: 4, odometer_reading: 2000, air_conditioning: true, capacity: 0, status: "abc", bus_url: ""};
   constructor(private busService:ApiService) { }
 
@@ -63,7 +63,11 @@ export class BusDetailsComponent implements OnInit {
     this.msg.odometer_reading= this.changedReading;
     
     this.busService.getResale(this.msg).subscribe(
-      data => { this.ResaleValue = data;},
+      data => { 
+        let currentResaleValue = data + "";
+        currentResaleValue = currentResaleValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        this.ResaleValue = currentResaleValue;},
       err => Swal.fire('Error', 'Please getting resale value', 'error'),
       () => console.log('done loading Buses')
     );

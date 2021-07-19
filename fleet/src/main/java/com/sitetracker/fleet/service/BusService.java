@@ -2,7 +2,6 @@ package com.sitetracker.fleet.service;
 
 import com.sitetracker.fleet.pojo.Bus;
 import com.sitetracker.fleet.pojo.BusCondition;
-import com.sitetracker.fleet.pojo.ResalePrice;
 import com.sitetracker.fleet.repository.BusConditionRepository;
 import com.sitetracker.fleet.repository.BusRepository;
 import com.sitetracker.fleet.repository.ResalePriceRepository;
@@ -39,7 +38,7 @@ public class BusService {
         return conditionRepository.getStartingSalePrice();
     }
 
-    public void saveBus(Bus bus){
-         busRepository.save(bus);
+    public Bus saveBus(Bus bus){
+          return busRepository.save(bus);
     }
 }

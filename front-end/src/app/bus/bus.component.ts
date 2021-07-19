@@ -13,7 +13,7 @@ export class BusComponent implements OnInit {
   
   public Buses : Bus[] =[];
   @Output() msgToSibling : EventEmitter<Bus> = new EventEmitter();
-  @Output() msgToSibling2 : EventEmitter<Number> = new EventEmitter();
+  @Output() msgToSibling2 : EventEmitter<string> = new EventEmitter();
   
   constructor(private busService:ApiService) { }
 
@@ -25,7 +25,10 @@ export class BusComponent implements OnInit {
     this.msgToSibling.emit(Bus);
     let num;
     this.busService.getResale(Bus).subscribe(
-      data => { num = data;  this.msgToSibling2.emit((data))},
+      data => {  
+        let currentResaleValue = data + "";
+        currentResaleValue = currentResaleValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");        
+        this.msgToSibling2.emit((currentResaleValue))},
       err => Swal.fire('Error', "Unable to get the resale value", 'error'),
       () => console.log('done loading Buses')
     );

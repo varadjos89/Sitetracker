@@ -26,7 +26,7 @@ public class BusController {
     String error;
 
     @GetMapping(path="/all")
-    public ResponseEntity<Optional> getEvery() {
+    public ResponseEntity<Optional> getAllBuses() {
         try {
             List<Bus> buses = busService.getAllBuses();
             if (!buses.isEmpty()) {
@@ -37,7 +37,7 @@ public class BusController {
                 return new ResponseEntity<>(Optional.of(jo.toString()), HttpStatus.NOT_FOUND);
             }
         } catch (Exception e) {
-            error = "{\"error\": \"Something went wrong in the backend!!\"}";
+            error = "{\"error\": \"Something went wrong with the backend!!\"}";
             jo = new JSONObject(error);
             return new ResponseEntity<>(Optional.of(jo.toString()), HttpStatus.BAD_REQUEST);
         }
@@ -75,7 +75,7 @@ public class BusController {
                 return new ResponseEntity<>(Optional.of(0), HttpStatus.OK);
             }
         }catch (Exception e) {
-            error = "{\"error\": \"Something went wrong in the backend!!\"}";
+            error = "{\"error\": \"Something went wrong with the backend!!\"}";
             e.printStackTrace();
             jo = new JSONObject(error);
             return new ResponseEntity<>(Optional.of(jo.toString()), HttpStatus.BAD_REQUEST);
@@ -83,14 +83,14 @@ public class BusController {
     }
 
     @PostMapping(path="/save")
-    public ResponseEntity<Optional> saveData(@RequestBody Bus bus) {
+    public ResponseEntity<Optional> saveBusData(@RequestBody Bus bus) {
         try {
             busService.saveBus(bus);
             error = "{\"Success\": \"Data Saved\"}";
             jo = new JSONObject(error);
             return new ResponseEntity<>(Optional.of(jo.toString()), HttpStatus.OK);
         }catch (Exception e) {
-            error = "{\"error\": \"Something went wrong in the backend!!\"}";
+            error = "{\"error\": \"Something went wrong with the backend!!\"}";
             e.printStackTrace();
             jo = new JSONObject(error);
             return new ResponseEntity<>(Optional.of(jo.toString()), HttpStatus.BAD_REQUEST);
