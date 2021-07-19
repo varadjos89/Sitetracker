@@ -39,6 +39,9 @@ spring.jpa.generate-ddl=true
 
 ![ER_Diagram](https://user-images.githubusercontent.com/48415852/125890045-84b9d355-20cb-48f6-98fa-3cdceaaa83ad.png)
 
+![image](https://user-images.githubusercontent.com/48415852/126227955-37e9f2b8-4133-49ed-a3bb-f3f958ea06cd.png)
+
+
 
 
 
