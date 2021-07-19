@@ -46,6 +46,13 @@ spring.jpa.generate-ddl=true
 
 ![image](https://user-images.githubusercontent.com/48415852/126228268-9a314258-59ed-419e-991c-bf65c529f326.png)
 
+![image](https://user-images.githubusercontent.com/48415852/126228699-007efb4d-0f17-4395-9f07-fdc524447368.png)
+
+![image](https://user-images.githubusercontent.com/48415852/126228787-a41a9970-88f2-4f7d-a00c-68460b525224.png)
+
+![image](https://user-images.githubusercontent.com/48415852/126228866-7373c051-6e67-46cb-9abb-59cebf4efb4b.png)
+
+
 ## If bus is not ready to use
 ![image](https://user-images.githubusercontent.com/48415852/126227955-37e9f2b8-4133-49ed-a3bb-f3f958ea06cd.png)
 
